@@ -15,4 +15,13 @@ def add_click():
 
 click_btn = tk.Button(root, text="+1", width = 12, height=2, command= add_click)
 click_btn.grid(row=2, column=0, pady=8, padx=5)
+
+def reset():
+    score.set(0)
+    score_label.config(text="Score: 0")
+reset_btn = tk.Button(root, text="Reset", width=12, command=reset)
+reset_btn.grid(row=2, column=1, pady=8, padx=5)    
+
+for c in range(2):
+    root.grid_columnconfigure(c, weight=1)
 root.mainloop()
