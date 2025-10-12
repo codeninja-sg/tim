@@ -22,6 +22,11 @@ result_label.grid(row=2, column=0, columnspan=4, pady=8)
 error_label = tk.Label(root, text="", fg="red")
 error_label.grid(row=3, column=0, columnspan=4)
 
-
+def parse_inputs():
+    a_text = entry_a.get().strip()
+    b_text = entry_b.get().strip()
+    if a_text == "" or b_text == "":
+        raise ValueError("Please enter botj A and B")
+    
 
 root.mainloop()
