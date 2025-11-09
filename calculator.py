@@ -26,7 +26,17 @@ def parse_inputs():
     a_text = entry_a.get().strip()
     b_text = entry_b.get().strip()
     if a_text == "" or b_text == "":
-        raise ValueError("Please enter botj A and B")
+        raise ValueError("Please enter botj A and B.")
+    a = float(a_text)
+    b = float(b_text)
+    return a, b
     
+def show_result(value):
+    result_label.config(text=f"Result: {value}")
+    error_label.config(text="")
 
+def show_error(msg):
+    error_label.config(text=msg)
+    result_label.config(text="Result: --")   
+ 
 root.mainloop()
