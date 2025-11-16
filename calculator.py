@@ -37,6 +37,21 @@ def show_result(value):
 
 def show_error(msg):
     error_label.config(text=msg)
-    result_label.config(text="Result: --")   
+    result_label.config(text="Result: --")
+
+def op_add():
+    try:
+        a, b = parse_inputs
+        show_result(a+b)
+    except ValueError as e:
+        show_error(str(e)) 
+
+def op_sub():
+    try:
+        a, b = parse_inputs()
+        show_result(a - b)
+    except ValueError as e:
+        show_error(str(e))        
+
  
 root.mainloop()
