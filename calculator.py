@@ -51,7 +51,24 @@ def op_sub():
         a, b = parse_inputs()
         show_result(a - b)
     except ValueError as e:
-        show_error(str(e))        
+        show_error(str(e))       
 
- 
+def op_mul():
+    try:
+        a, b = parse_inputs()
+        show_result(a * b) 
+    except ValueError as e:
+        show_error(str(e)) 
+
+def op_div():
+    try:
+        a, b = parse_inputs()
+        if b == 0:
+            raise ValueError("Cannot divide by zero")
+        
+    except ValueError as e:
+        show_error(str(e))
+
+
+
 root.mainloop()
