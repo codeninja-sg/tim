@@ -19,6 +19,7 @@ guess_entry.pack(pady=5)
 result_label = tk.Label(root, text="Good luck!", font=("Arial", 14))
 result_label.pack(pady=10)
 
+
 secret = random.randint(1, 100)
 
 
@@ -34,9 +35,14 @@ def check_guess():
     if guess < secret:
        result_label.config(text="Too low!")
 
+    elif guess > secret:
+       result_label.config(text="Too high!")
 
+    else:
+        result_label.config(text=f"You got it! The number was {secret}.")
 
-
+check_btn = tk.Button(root, text="Check", command=check_guess)
+check_btn.pack(pady=5)        
 
 
 
