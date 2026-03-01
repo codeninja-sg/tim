@@ -65,6 +65,20 @@ btn_orange= tk.Button(controls, text="Orange",command=set_orange)
 btn_orange.grid(row=0, column=3, padx=2)
 
 
+
+def change_size(value):
+    global pen_size
+    pen_size = int(value)
+
+
+size_label = tk.Label(controls, text=pen size)
+size_label.grid(row=0, column=4, padx=6)
+
+
+size_scale = tk.Scale(controls, from_=1, to=2,
+                      orient="horizontal",
+                      command=change_size
+
     
 
 
