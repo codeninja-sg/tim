@@ -71,15 +71,24 @@ def change_size(value):
     pen_size = int(value)
 
 
-size_label = tk.Label(controls, text=pen size)
+size_label = tk.Label(controls, text="pen size")
 size_label.grid(row=0, column=4, padx=6)
 
 
-size_scale = tk.Scale(controls, from_=1, to=2,
+size_scale = tk.Scale(controls, from_=1, to=20,
                       orient="horizontal",
-                      command=change_size
+                      command=change_size)
 
-    
+
+size_scale.set(5)
+size_scale.grid(row=0, column=5)
+
+
+def clear_canvas():
+    canvas.delete("all")
+
+clear_btn = tk.Button(controls, text="Clear", command=clear_canvas)    
+clear_btn.grid(row=0, column=6, padx=6)    
 
 
 
