@@ -21,7 +21,7 @@ dot_x = 100
 dot_y = 100
 
 
-DOT_R = 100
+DOT_R = 50
 MOVE_MS = 1000
 
 
@@ -41,18 +41,42 @@ def move_dot():
 
     global dot_x, dot_y, current_dot_id
 
+    canvas.delete(current_dot_id)
+
+    dot_x = random.randint(DOT_R, CAN_W - DOT_R)
+
+    dot_y = random.randint(DOT_R, CAN_H - DOT_R)
+
+    current_dot_id = draw_dot(dot_x, dot_y)
+
+    root.after(MOVE_MS, move_dot)
+
+root.after(MOVE_MS,move_dot)  #start the loop
 
 
 
 
+def on_click(event):
 
+    global score
 
+    dx = event.x - dot_x
 
+    dy = event.y - dot_y
 
+    dist = math.hypot(dx,dy)
 
+    if dist<=DOT_R:
 
+        score += 1
 
+        score_label.config(text=f"Score: {score}")  
 
+        # optional: jump immediately after a hit  
+        
+        move_dot
+
+canvas.bind("<Button-1>", on_click)
 
 
 
