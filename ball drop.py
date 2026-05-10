@@ -21,8 +21,8 @@ pad_y = H - 40
 
 
 paddle = canvas.create_rectangle(
-    pad_x - pad//2, pad_y - pad_h//2
-    pad_x + pad_w//2, pad_y + pad_h//2
+    pad_x - pad_w//2, pad_y - pad_h//2,
+    pad_x + pad_w//2, pad_y + pad_h//2,
     fill='cyan', outline =''
 )
 
@@ -35,39 +35,56 @@ def move_left(event):
 
     if pad_x < pad_w // 2:
         pad_x = pad_w // 2
-    canvas.coords(paddle
-        pad_x - pad w//2, pad_y - pad_h//2)
+    canvas.coords(paddle,
+        pad_x - pad_w//2, pad_y - pad_h//2,
+        pad_x + pad_w//2, pad_y + pad_h//2 )
 
 
-root.bind('<Left>', .... <fill in yourself)
+def move_right(event):
+    global pad_x
+    pad_x += SPEED
 
+    if pad_x > W - pad_w // 2:
+        pad_x = W - pad_w // 2
+    canvas.coords(paddle,
+        pad_x - pad_w//2, pad_y - pad_h//2,
+        pad_x + pad_w//2, pad_y + pad_h//2 )
+
+
+root.bind('<Left>', move_left)
+root.bind('<Right>', move_right)
 
 ball_r = 12
-ball_x = W // 2
+ball_x = W//2
 ball_y = 100
 ball_dx = 3
 ball_dy = 3
 
 ball = canvas.create_oval(
-    ball_x - ball_r, ball_y - ball_r
+    ball_x - ball_r, ball_y - ball_r,
     ball_x + ball_r, ball_y + ball_r,
     fill='white', outline=''
 )
 
 score   = 0
-game+over = False
+game_over = False
 
 
-score_label = tk.Label = tk.Label(root, text='Score:0')
-
-
-
-
-
+score_label = tk.Label = tk.Label(root, text='Score:0',
+                                  font=('Arial', 14), bg='black', fg='white')
+score_label.pack()
 
 
 
 
 
-root.mainloop
+
+
+
+
+
+
+
+
+root.mainloop()
 
